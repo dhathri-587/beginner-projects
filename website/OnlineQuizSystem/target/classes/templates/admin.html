@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Admin Panel - Shanthi Dharma Quiz</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>
+            👨‍💼 Admin Panel
+        </h1>
+
+        <p class="center">
+            Add, update and delete quiz questions.
+        </p>
+
+
+        <!-- LOGOUT -->
+
+        <div class="admin-top">
+
+            <a
+                href="/admin-logout"
+                class="logout-btn">
+
+                🔒 Logout
+
+            </a>
+
+        </div>
+
+
+        <h2>
+            ➕ Add New Question
+        </h2>
+
+
+        <form
+            action="/admin/add"
+            method="post">
+
+
+            <label>
+                Question
+            </label>
+
+            <input
+                type="text"
+                name="questionText"
+                placeholder="Enter the question"
+                required>
+
+
+            <label>
+                Option A
+            </label>
+
+            <input
+                type="text"
+                name="optionA"
+                placeholder="Enter option A"
+                required>
+
+
+            <label>
+                Option B
+            </label>
+
+            <input
+                type="text"
+                name="optionB"
+                placeholder="Enter option B"
+                required>
+
+
+            <label>
+                Option C
+            </label>
+
+            <input
+                type="text"
+                name="optionC"
+                placeholder="Enter option C"
+                required>
+
+
+            <label>
+                Option D
+            </label>
+
+            <input
+                type="text"
+                name="optionD"
+                placeholder="Enter option D"
+                required>
+
+
+            <label>
+                Correct Answer
+            </label>
+
+            <select
+                name="correctAnswer"
+                required>
+
+                <option value="">
+                    -- Select Correct Answer --
+                </option>
+
+                <option value="A">
+                    A
+                </option>
+
+                <option value="B">
+                    B
+                </option>
+
+                <option value="C">
+                    C
+                </option>
+
+                <option value="D">
+                    D
+                </option>
+
+            </select>
+
+
+            <div class="center">
+
+                <button
+                    type="submit"
+                    class="btn">
+
+                    ➕ Add Question
+
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <hr>
+
+
+        <h2>
+            📋 Existing Questions
+        </h2>
+
+
+        <div th:if="${#lists.isEmpty(questions)}">
+
+            <p class="center">
+                No questions added yet.
+            </p>
+
+        </div>
+
+
+        <div
+            th:each="question : ${questions}"
+            class="question-card">
+
+
+            <h2>
+
+                Question
+                <span
+                    th:text="${question.id}">
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                <strong>
+                    Question:
+                </strong>
+
+                <span
+                    th:text="${question.questionText}">
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    A:
+                </strong>
+
+                <span
+                    th:text="${question.optionA}">
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    B:
+                </strong>
+
+                <span
+                    th:text="${question.optionB}">
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    C:
+                </strong>
+
+                <span
+                    th:text="${question.optionC}">
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    D:
+                </strong>
+
+                <span
+                    th:text="${question.optionD}">
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Correct Answer:
+                </strong>
+
+                <span
+                    th:text="${question.correctAnswer}">
+                </span>
+
+            </p>
+
+
+            <a
+                th:href="@{/admin/edit/{id}(id=${question.id})}"
+                class="btn">
+
+                ✏️ Update
+
+            </a>
+
+
+            <a
+                th:href="@{/admin/delete/{id}(id=${question.id})}"
+                class="btn"
+                onclick="return confirm('Are you sure you want to delete this question?');">
+
+                🗑️ Delete
+
+            </a>
+
+        </div>
+
+
+        <br>
+
+
+        <div class="center">
+
+            <a
+                href="/quiz"
+                class="btn">
+
+                📝 Go to Quiz
+
+            </a>
+
+            <a
+                href="/shanthi-dharma-quiz"
+                class="btn">
+
+                🏠 Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

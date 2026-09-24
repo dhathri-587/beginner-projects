@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="welcome-card">
+
+        <div class="welcome-icon">🔐</div>
+
+        <h1>Admin Login</h1>
+
+        <p class="welcome-text">
+            This area is only for the quiz administrator.
+        </p>
+
+        <form action="/admin-login" method="post">
+
+            <label>Admin Password</label>
+
+            <input type="password"
+                   name="password"
+                   placeholder="Enter admin password"
+                   required>
+
+            <br><br>
+
+            <button type="submit" class="big-btn">
+                🔓 Login
+            </button>
+
+        </form>
+
+        <br>
+
+        <p th:if="${error}"
+           th:text="${error}"
+           style="color:#d6336c; font-weight:bold;">
+        </p>
+
+        <br>
+
+        <a href="/" class="back-btn">
+            🏠 Back to Home
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+

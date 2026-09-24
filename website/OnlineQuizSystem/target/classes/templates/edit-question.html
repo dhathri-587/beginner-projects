@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Update Question</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>
+            ✏️ Update Question
+        </h1>
+
+        <p class="center">
+            Edit the question details below.
+        </p>
+
+
+        <form
+            action="/admin/update"
+            method="post">
+
+
+            <input
+                type="hidden"
+                name="id"
+                th:value="${question.id}">
+
+
+            <label>
+                Question
+            </label>
+
+            <input
+                type="text"
+                name="questionText"
+                th:value="${question.questionText}"
+                required>
+
+
+            <label>
+                Option A
+            </label>
+
+            <input
+                type="text"
+                name="optionA"
+                th:value="${question.optionA}"
+                required>
+
+
+            <label>
+                Option B
+            </label>
+
+            <input
+                type="text"
+                name="optionB"
+                th:value="${question.optionB}"
+                required>
+
+
+            <label>
+                Option C
+            </label>
+
+            <input
+                type="text"
+                name="optionC"
+                th:value="${question.optionC}"
+                required>
+
+
+            <label>
+                Option D
+            </label>
+
+            <input
+                type="text"
+                name="optionD"
+                th:value="${question.optionD}"
+                required>
+
+
+            <label>
+                Correct Answer
+            </label>
+
+            <select
+                name="correctAnswer"
+                required>
+
+                <option
+                    value="A"
+                    th:selected="${question.correctAnswer == 'A'}">
+                    A
+                </option>
+
+                <option
+                    value="B"
+                    th:selected="${question.correctAnswer == 'B'}">
+                    B
+                </option>
+
+                <option
+                    value="C"
+                    th:selected="${question.correctAnswer == 'C'}">
+                    C
+                </option>
+
+                <option
+                    value="D"
+                    th:selected="${question.correctAnswer == 'D'}">
+                    D
+                </option>
+
+            </select>
+
+
+            <br>
+            <br>
+
+
+            <div class="center">
+
+                <button
+                    type="submit"
+                    class="btn">
+
+                    💾 Update Question
+
+                </button>
+
+
+                <a
+                    href="/admin"
+                    class="btn">
+
+                    ↩️ Cancel
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

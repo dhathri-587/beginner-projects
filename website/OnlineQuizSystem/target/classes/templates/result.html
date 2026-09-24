@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Quiz Result - Shanthi Dharma</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="result-card">
+
+        <div class="result-icon">
+            🎊
+        </div>
+
+        <h1>
+            Quiz Completed!
+        </h1>
+
+        <p class="result-message">
+            Wow! You made it till the end! ❤️
+        </p>
+
+
+        <p class="score-title">
+            Your Score
+        </p>
+
+
+        <div class="score">
+
+            <span th:text="${score}">
+            </span>
+
+            <span class="score-divider">
+                /
+            </span>
+
+            <span th:text="${total}">
+            </span>
+
+        </div>
+
+
+        <!-- PERFECT SCORE -->
+
+        <div th:if="${score == total}">
+
+            <h2 class="result-title">
+                🏆 Amazing!
+            </h2>
+
+            <p>
+                You are the ultimate
+                <strong>
+                    Shanthi Dharma champion!
+                </strong>
+                ❤️
+            </p>
+
+        </div>
+
+
+        <!-- EXCELLENT -->
+
+        <div th:if="${score < total && score >= 7}">
+
+            <h2 class="result-title">
+                🌟 Excellent!
+            </h2>
+
+            <p>
+                You really know your family! 😍
+            </p>
+
+        </div>
+
+
+        <!-- NOT BAD -->
+
+        <div th:if="${score < 7 && score >= 4}">
+
+            <h2 class="result-title">
+                😄 Not Bad!
+            </h2>
+
+            <p>
+                Time for a few more family conversations! ❤️
+            </p>
+
+        </div>
+
+
+        <!-- LOW SCORE -->
+
+        <div th:if="${score < 4}">
+
+            <h2 class="result-title">
+                😂 Oh Oh!
+            </h2>
+
+            <p>
+                Looks like we need some more family time! 😜
+            </p>
+
+        </div>
+
+
+        <!-- THANK YOU -->
+
+        <div class="thank-you-box">
+
+            <h2>
+                💖 Thank You for Playing!
+            </h2>
+
+            <p>
+                Thank you for being a part of the
+                <strong>
+                    Shanthi Dharma Family Quiz!
+                </strong>
+            </p>
+
+            <p>
+                This little quiz was made with
+                <strong>
+                    love, laughter and lots of family memories.
+                </strong>
+            </p>
+
+            <p>
+                Until the next challenge! 🌸
+            </p>
+
+        </div>
+
+
+        <div class="result-buttons">
+
+            <a
+                href="/quiz"
+                class="big-btn">
+
+                🔄 Play Again
+
+            </a>
+
+            <a
+                href="/shanthi-dharma-quiz"
+                class="back-btn">
+
+                🏠 Back to Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Shanthi Dharma Family Quiz</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="quiz-header">
+
+        <div class="quiz-icon">
+            🌸
+        </div>
+
+        <h1>
+            Shanthi Dharma Family Challenge
+        </h1>
+
+        <p>
+            How well do you know our family? ❤️
+        </p>
+
+        <p class="small-text">
+            Think carefully... but don't take it too seriously! 😜
+        </p>
+
+    </div>
+
+
+    <form action="/quiz/submit" method="post">
+
+        <div
+            th:each="question, stat : ${questions}"
+            class="question-card">
+
+            <div class="question-number">
+
+                Question
+                <span th:text="${stat.count}"></span>
+
+            </div>
+
+            <h2
+                th:text="${question.questionText}">
+            </h2>
+
+
+            <!-- OPTION A -->
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    th:name="'question_' + ${question.id}"
+                    value="A"
+                    required>
+
+                <span>
+
+                    <strong>A.</strong>
+
+                    <span
+                        th:text="${question.optionA}">
+                    </span>
+
+                </span>
+
+            </label>
+
+
+            <!-- OPTION B -->
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    th:name="'question_' + ${question.id}"
+                    value="B">
+
+                <span>
+
+                    <strong>B.</strong>
+
+                    <span
+                        th:text="${question.optionB}">
+                    </span>
+
+                </span>
+
+            </label>
+
+
+            <!-- OPTION C -->
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    th:name="'question_' + ${question.id}"
+                    value="C">
+
+                <span>
+
+                    <strong>C.</strong>
+
+                    <span
+                        th:text="${question.optionC}">
+                    </span>
+
+                </span>
+
+            </label>
+
+
+            <!-- OPTION D -->
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    th:name="'question_' + ${question.id}"
+                    value="D">
+
+                <span>
+
+                    <strong>D.</strong>
+
+                    <span
+                        th:text="${question.optionD}">
+                    </span>
+
+                </span>
+
+            </label>
+
+        </div>
+
+
+        <div class="quiz-submit">
+
+            <p>
+                💖 All the best! Have fun!
+            </p>
+
+            <button
+                type="submit"
+                class="big-btn">
+
+                🎉 Submit Quiz
+
+            </button>
+
+        </div>
+
+    </form>
+
+
+    <div class="bottom-navigation">
+
+        <a
+            href="/shanthi-dharma-quiz"
+            class="back-btn">
+
+            🏠 Home
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
